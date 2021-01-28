@@ -1,6 +1,7 @@
 import tushare
 import pandas
 token = '8637b9db65db0335248b4321039aab62160e26753c4794a92a65e5c7'
-ts.set_token(token)
-pro=ts.pro_api()
-data = pro.query('stock_basic', exchange='', list_status='L', fields='ts_code,symbol,name,area,industry,list_data')
+tushare.set_token(token)
+pro=tushares.pro_api()
+data = pro.stock_basic(exchange='', list_status='L', fields='ts_code,symbol,name,area,industry,list_date')
+data.to_excel('C://Users/hp/Desktop/stock/stock-list.xlsx')
