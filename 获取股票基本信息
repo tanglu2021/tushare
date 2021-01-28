@@ -1,7 +1,14 @@
-import tushare
+import tushare as ts
 import pandas
 token = '8637b9db65db0335248b4321039aab62160e26753c4794a92a65e5c7'
-tushare.set_token(token)
-pro=tushares.pro_api()
-data = pro.stock_basic(exchange='', list_status='L', fields='ts_code,symbol,name,area,industry,list_date')
-data.to_excel('C://Users/hp/Desktop/stock/stock-list.xlsx')
+ts.set_token(token)
+pro=ts.pro_api()
+#获取股票基本信息
+data1 = pro.stock_basic(exchange='', list_status='L', fields='ts_code,symbol,name,area,industry,list_date')
+data1.to_excel('C://Users/hp/Desktop/stock/stock-list.xlsx')
+#获取股票成交量vol，成交额amount
+data2 = pro.daily(ts_code='',start_date=20210128',end_date='20210129')
+#限售股解禁
+data3 = pro.share_float(end_date='20210128')
+#获取全国电影剧本备案数据.单次最大500
+data4 = pro.film_record(ann_date='20210128',start_date='',end_date='')
